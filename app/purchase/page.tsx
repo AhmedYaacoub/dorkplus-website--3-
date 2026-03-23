@@ -152,29 +152,29 @@ export default function PurchasePage() {
               <p className="text-xl text-muted-foreground">Select a cryptocurrency to complete your purchase</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-3 md:gap-4 mb-8">
               {cryptoOptions.map((crypto) => (
                 <button
                   key={crypto.id}
                   onClick={() => setSelectedCrypto(crypto.id)}
-                  className={`group relative overflow-hidden rounded-xl p-1 transition-all duration-300 ${
+                  className={`group relative overflow-hidden rounded-xl p-1 transition-all duration-300 h-full ${
                     selectedCrypto === crypto.id
                       ? `bg-gradient-to-br ${crypto.gradient} shadow-2xl ${crypto.shadowColor}`
                       : "bg-gradient-to-br from-border to-border/50 hover:shadow-lg"
                   }`}
                 >
-                  <div className={`relative rounded-lg p-6 space-y-3 transition-all ${selectedCrypto === crypto.id ? "bg-card border-0" : "bg-card border border-border/50 group-hover:bg-card/90"}`}>
-                    <div className={`w-12 h-12 rounded-full bg-gradient-to-br ${crypto.gradient} flex items-center justify-center text-lg font-bold text-white shadow-lg`}>
+                  <div className={`relative rounded-lg p-4 md:p-6 space-y-2 md:space-y-3 transition-all h-full flex flex-col justify-between ${selectedCrypto === crypto.id ? "bg-card border-0" : "bg-card border border-border/50 group-hover:bg-card/90"}`}>
+                    <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full bg-gradient-to-br ${crypto.gradient} flex items-center justify-center text-base md:text-lg font-bold text-white shadow-lg flex-shrink-0`}>
                       {crypto.name.charAt(0)}
                     </div>
-                    <div className="text-left space-y-1">
-                      <p className="font-bold text-foreground text-lg">{crypto.name}</p>
+                    <div className="text-left space-y-0.5 md:space-y-1 flex-grow">
+                      <p className="font-bold text-foreground text-sm md:text-lg">{crypto.name}</p>
                       <p className="text-xs text-muted-foreground">{crypto.network}</p>
                     </div>
                     {selectedCrypto === crypto.id && (
-                      <div className="flex items-center gap-2 pt-2 text-green-500 text-sm font-semibold">
-                        <CheckCircle className="w-4 h-4" />
-                        Selected
+                      <div className="flex items-center gap-1.5 pt-2 text-green-500 text-xs md:text-sm font-semibold">
+                        <CheckCircle className="w-3 h-3 md:w-4 md:h-4" />
+                        <span>Selected</span>
                       </div>
                     )}
                   </div>
@@ -242,10 +242,10 @@ export default function PurchasePage() {
               <p className="text-xl text-muted-foreground">Transfer exactly $30.00 worth of {selectedCryptoData.name}</p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
               {/* Payment Amount */}
               <Card className={`border-2 ${selectedCryptoData.borderColor} bg-gradient-to-br ${selectedCryptoData.lightBg} overflow-hidden shadow-xl`}>
-                <CardContent className="p-8 text-center space-y-6">
+                <CardContent className="p-6 md:p-8 text-center space-y-6">
                   <div>
                     <p className="text-sm text-muted-foreground mb-2">Amount to Send</p>
                     <p className="text-5xl md:text-6xl font-bold text-primary">$30.00</p>
@@ -334,21 +334,21 @@ export default function PurchasePage() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-2 gap-4">
-                  <Button
-                    onClick={() => setShowConfirmation(false)}
-                    variant="outline"
-                    className="h-12 text-base font-bold rounded-lg"
-                  >
-                    Back
-                  </Button>
-                  <Button
-                    onClick={handleConfirmPaid}
-                    className={`h-12 text-base font-bold bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]`}
-                  >
-                    Yes, Confirm
-                  </Button>
-                </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
+                <Button
+                  onClick={() => setShowConfirmation(false)}
+                  variant="outline"
+                  className="h-11 md:h-12 text-sm md:text-base font-bold"
+                >
+                  Back
+                </Button>
+                <Button
+                  onClick={handleConfirmPaid}
+                  className="h-11 md:h-12 text-sm md:text-base font-bold bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white"
+                >
+                  Yes, Confirm
+                </Button>
+              </div>
 
                 <p className="text-center text-xs text-muted-foreground pt-4 border-t border-border/30">
                   After confirmation, you'll see a status page. We'll process your transaction within minutes.
