@@ -11,7 +11,6 @@ import { FAQSection } from "@/components/faq-section"
 import { FloatingElements } from "@/components/floating-elements"
 import VisitorTracker from "@/components/visitor-tracker"
 import { LiveChatWidget } from "@/components/livechat-widget"
-import { Shield } from "lucide-react"
 
 export default function HomePage() {
   return (
@@ -51,7 +50,6 @@ export default function HomePage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center space-y-6">
             <div className="flex items-center justify-center gap-2 text-2xl font-bold">
-              <Shield className="w-6 h-6 text-primary" />
               <span>DorkPlus</span>
             </div>
             <p className="text-muted-foreground text-base max-w-2xl mx-auto leading-relaxed">
